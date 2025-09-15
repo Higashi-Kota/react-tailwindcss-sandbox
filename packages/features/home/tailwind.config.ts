@@ -3,7 +3,11 @@ import type { Config } from "tailwindcss"
 import tailwindcssAnimate from "tailwindcss-animate"
 
 const config: Config = {
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "../../features/*/src/**/*.{js,ts,jsx,tsx}",
+    "../../ui/src/**/*.{js,ts,jsx,tsx}",
+  ],
   presets: [themePreset],
   plugins: [tailwindcssAnimate],
 }
