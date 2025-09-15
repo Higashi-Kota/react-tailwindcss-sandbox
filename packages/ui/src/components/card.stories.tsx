@@ -58,7 +58,7 @@ export const WithForm: Story = {
               <span className='text-sm font-medium'>Name</span>
               <input
                 placeholder='Your name'
-                className='flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm'
+                className='flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-xs'
                 aria-label='Name'
               />
             </div>
@@ -67,7 +67,7 @@ export const WithForm: Story = {
               <input
                 type='email'
                 placeholder='Your email'
-                className='flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm'
+                className='flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-xs'
                 aria-label='Email'
               />
             </div>

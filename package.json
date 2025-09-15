@@ -9,12 +9,18 @@
     "packages/features/*"
   ],
   "scripts": {
+    "script:typecheck": "npx tsc --noEmit scripts/dev-watch.ts --moduleResolution node --module esnext --target esnext",
+    "script:format:fix": "npx @biomejs/biome check scripts/dev-watch.ts --write",
     "clean:modules": "find packages -type d -name node_modules -prune -exec rm -rf {} +",
     "clean:build": "find packages -name '*.tsbuildinfo' -delete && find packages -type d -name dist -exec rm -rf {} +",
     "clean:all": "pnpm run clean:build && rm -rf dist node_modules && pnpm run clean:modules",
     "dev:react-app": "pnpm --filter ./packages/apps/react-app dev",
     "dev:watch": "pnpm -r build:watch",
-    "dev:watch:react-app": "concurrently \"pnpm -r build:watch\" \"pnpm --filter ./packages/apps/react-app dev\" --names \"build,react-app\" --prefix-colors \"yellow,blue\"",
+    "dev:watch:libs": "pnpm --filter './packages/{config,utils,hooks,theme,ui}' -r build:watch",
+    "dev:watch:features": "pnpm --filter './packages/features/*' -r build:watch",
+    "dev:watch:all": "pnpm --filter '!./packages/apps/*' -r build:watch",
+    "dev:watch:react-app": "node --experimental-strip-types ./scripts/dev-watch.ts react-app",
+    "dev:watch:app": "node --experimental-strip-types ./scripts/dev-watch.ts",
     "build:analyze": "pnpm -r build:analyze",
     "build:dev": "pnpm -r build:dev",
     "build:test": "pnpm -r build:test",
@@ -30,9 +36,12 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.4",
+    "@tailwindcss/postcss": "^4.1.13",
+    "@tailwindcss/vite": "^4.1.13",
+    "@types/node": "^24.4.0",
     "concurrently": "^9.2.1",
     "knip": "^5.63.1",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.1.13",
     "tailwindcss-animate": "^1.0.7",
     "taze": "^19.6.0",
     "typescript": "^5.9.2"
