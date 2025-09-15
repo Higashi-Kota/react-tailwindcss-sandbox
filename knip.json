@@ -1,0 +1,21 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": ["packages/apps/*/src/main.tsx", "packages/apps/*/src/index.tsx"],
+  "project": ["packages/apps/**/*.{ts,tsx,js,jsx}", "packages/**/*.{ts,tsx,js,jsx}"],
+  "ignore": [
+    "**/*.config.*",
+    "**/*.test.*",
+    "**/*.spec.*",
+    "**/dist/**",
+    "**/build/**",
+    "**/.next/**",
+    "**/node_modules/**"
+  ],
+  "ignoreDependencies": ["@biomejs/biome", "autoprefixer", "postcss"],
+  "workspaces": {
+    "packages/apps/react-app": {
+      "entry": ["src/main.tsx"],
+      "project": ["src/**/*.{ts,tsx}"]
+    }
+  }
+}

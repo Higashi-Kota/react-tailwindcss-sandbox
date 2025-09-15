@@ -1,0 +1,1 @@
+export { default } from "@internal/shared-config/postcss"

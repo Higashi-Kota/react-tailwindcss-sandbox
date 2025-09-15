@@ -1,0 +1,54 @@
+{
+  "name": "@internal/feature-home",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "clean": "rm -rf dist node_modules *.tsbuildinfo",
+    "build:dev": "NODE_ENV=development rslib build",
+    "build:test": "NODE_ENV=test rslib build",
+    "build:stg": "NODE_ENV=staging rslib build",
+    "build:prod": "NODE_ENV=production rslib build",
+    "build:watch": "NODE_ENV=development rslib build --watch",
+    "dev": "NODE_ENV=development rslib build --watch",
+    "typecheck": "tsc --build --noEmit",
+    "format": "biome format --write .",
+    "format:fix": "biome check . --fix --unsafe",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@internal/theme": "workspace:*",
+    "@internal/ui": "workspace:*",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.544.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.4",
+    "@internal/shared-config": "workspace:*",
+    "@rslib/core": "^0.9.2",
+    "@types/node": "^22.18.3",
+    "@types/react": "^18.3.24",
+    "@types/react-dom": "^18.3.7",
+    "tailwindcss": "^3.4.17",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

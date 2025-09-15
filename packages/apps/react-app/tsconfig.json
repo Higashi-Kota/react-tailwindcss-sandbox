@@ -1,0 +1,27 @@
+{
+  "extends": "../../shared-config/tsconfig/tsconfig.app.json",
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.tsbuildinfo",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/pages/*": ["./src/pages/*"],
+      "@/routes/*": ["./src/routes/*"],
+      "@/styles/*": ["./src/styles/*"],
+      "@/features/*": ["./src/features/*"],
+      "@/layouts/*": ["./src/layouts/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"],
+  "exclude": ["node_modules", "dist", "public"],
+  "references": [
+    { "path": "../../ui/tsconfig.json" },
+    { "path": "../../theme/tsconfig.json" },
+    { "path": "../../features/home/tsconfig.json" },
+    { "path": "../../features/about/tsconfig.json" },
+    { "path": "../../features/contact/tsconfig.json" },
+    { "path": "../../features/dashboard/tsconfig.json" }
+  ]
+}

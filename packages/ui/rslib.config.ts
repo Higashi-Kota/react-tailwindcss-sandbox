@@ -1,0 +1,55 @@
+import { defineConfig } from "@rslib/core"
+
+const isProduction = process.env.NODE_ENV === "production"
+const isDevelopment = process.env.NODE_ENV === "development"
+const isTest = process.env.NODE_ENV === "test"
+const isStaging = process.env.NODE_ENV === "staging"
+
+export default defineConfig({
+  lib: [
+    {
+      source: {
+        entry: {
+          index: "src/index.ts",
+          "styles/index": "src/styles/index.css",
+        },
+        tsconfigPath: "./tsconfig.json",
+      },
+      format: "esm",
+      syntax: "esnext",
+      dts: {
+        bundle: false,
+        distPath: "dist",
+      },
+      bundle: true,
+      output: {
+        minify: isProduction || isStaging || isTest || isDevelopment,
+        sourceMap: {
+          js: "source-map",
+          css: false,
+        },
+        target: "web",
+        externals: [/^@internal\/(?!shared-config)/, /^react$/, /^react-dom$/],
+        cssModules: {
+          auto: true,
+        },
+      },
+    },
+  ],
+  output: {
+    distPath: {
+      root: "dist",
+    },
+    cleanDistPath: "auto",
+  },
+  plugins: [
+    {
+      name: "build-success",
+      setup(api) {
+        api.onAfterBuild(() => {
+          console.log("✅ @internal/ui built successfully!")
+        })
+      },
+    },
+  ],
+})

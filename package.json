@@ -1,0 +1,44 @@
+{
+  "name": "react-tailwindcss-sandbox",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "packages/apps/*",
+    "packages/features/*"
+  ],
+  "scripts": {
+    "clean:modules": "find packages -type d -name node_modules -prune -exec rm -rf {} +",
+    "clean:build": "find packages -name '*.tsbuildinfo' -delete && find packages -type d -name dist -exec rm -rf {} +",
+    "clean:all": "pnpm run clean:build && rm -rf dist node_modules && pnpm run clean:modules",
+    "dev:react-app": "pnpm --filter ./packages/apps/react-app dev",
+    "dev:watch": "pnpm -r build:watch",
+    "dev:watch:react-app": "concurrently \"pnpm -r build:watch\" \"pnpm --filter ./packages/apps/react-app dev\" --names \"build,react-app\" --prefix-colors \"yellow,blue\"",
+    "build:analyze": "pnpm -r build:analyze",
+    "build:dev": "pnpm -r build:dev",
+    "build:test": "pnpm -r build:test",
+    "build:stg": "pnpm -r build:stg",
+    "build:prod": "pnpm -r build:prod",
+    "build:prod:app": "pnpm --filter './packages/apps/*' -r build:prod",
+    "build:prod:react-app": "pnpm --filter ./packages/apps/react-app build:prod",
+    "build:prepare": "pnpm --filter '!./packages/apps/*' -r --workspace-concurrency=4 build:prod",
+    "format": "pnpm -r format",
+    "format:fix": "pnpm -r format:fix",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.4",
+    "concurrently": "^8.2.2",
+    "knip": "^5.63.1",
+    "taze": "^19.6.0",
+    "typescript": "^5.9.2"
+  },
+  "volta": {
+    "node": "24.4.0",
+    "yarn": "4.9.2",
+    "npm": "11.4.2",
+    "pnpm": "10.14.0"
+  }
+}

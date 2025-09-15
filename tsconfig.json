@@ -1,0 +1,19 @@
+{
+  "extends": "./packages/shared-config/tsconfig/tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "compilerOptions": {
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+    "composite": true,
+    "declarationMap": false
+  },
+  "references": [
+    { "path": "./packages/shared-config" },
+    { "path": "./packages/theme" },
+    { "path": "./packages/utils" },
+    { "path": "./packages/hooks" },
+    { "path": "./packages/ui" },
+    { "path": "./packages/apps/react-app" }
+  ]
+}
