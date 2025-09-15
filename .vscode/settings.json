@@ -68,4 +68,15 @@
 
   // プロジェクトリファレンスの自動検出を無効化（パフォーマンス改善）
   "typescript.disableAutomaticTypeAcquisition": true,
+
+  // Tailwind CSS IntelliSense 設定
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ]
 }

@@ -32,6 +32,8 @@
     "@biomejs/biome": "^2.2.4",
     "concurrently": "^9.2.1",
     "knip": "^5.63.1",
+    "tailwindcss": "^3.4.17",
+    "tailwindcss-animate": "^1.0.7",
     "taze": "^19.6.0",
     "typescript": "^5.9.2"
   },
