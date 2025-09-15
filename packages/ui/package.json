@@ -30,7 +30,7 @@
     "build:prod": "NODE_ENV=production rslib build",
     "build:watch": "NODE_ENV=development rslib build --watch",
     "dev": "NODE_ENV=development rslib build --watch",
-    "typecheck": "tsc --build --noEmit",
+    "typecheck": "tsc --build",
     "format": "biome format --write .",
     "format:fix": "biome check . --fix --unsafe",
     "test": "vitest"

@@ -2,7 +2,6 @@
   "extends": "../../shared-config/tsconfig/tsconfig.app.json",
   "compilerOptions": {
     "composite": true,
-    "noEmit": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.tsbuildinfo",
     "baseUrl": ".",
     "paths": {
@@ -17,6 +16,7 @@
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"],
   "exclude": ["node_modules", "dist", "public"],
   "references": [
+    { "path": "../../config/tsconfig.json" },
     { "path": "../../ui/tsconfig.json" },
     { "path": "../../theme/tsconfig.json" },
     { "path": "../../features/home/tsconfig.json" },
