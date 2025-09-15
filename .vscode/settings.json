@@ -78,5 +78,14 @@
     ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
-  ]
+  ],
+  // Tailwind CSS v4用の設定 - monorepo対応
+  // 各ワークスペースのCSSファイルをマッピング
+  // 1. ワークスペース別の設定: 各パッケージが独自のCSS設定でIntelliSenseを取得
+  // 2. パフォーマンス向上: VSCodeが関連する設定のみロード
+  // 3. 柔軟なマッピング: グロブパターンで細かい制御が可能
+  // @see https://github.com/tailwindlabs/tailwindcss/issues/13136#issuecomment-2672907839
+  "tailwindCSS.experimental.configFile": {
+    "./packages/theme/src/styles/base.css": "packages/**"
+  }
 }

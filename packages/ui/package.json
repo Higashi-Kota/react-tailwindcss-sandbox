@@ -11,12 +11,8 @@
       "import": "./dist/index.js",
       "types": "./dist/src/index.d.ts"
     },
-    "./styles": {
-      "import": "./dist/styles/index.css"
-    },
-    "./styles/index.css": {
-      "import": "./dist/styles/index.css"
-    }
+    "./styles": "./dist/styles/index.css",
+    "./styles/index.css": "./dist/styles/index.css"
   },
   "files": [
     "dist"
@@ -69,7 +65,7 @@
     "jsdom": "^26.1.0",
     "msw": "^2.10.5",
     "storybook": "^9.1.6",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.1.13",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"

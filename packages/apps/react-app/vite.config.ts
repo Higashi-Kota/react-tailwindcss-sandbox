@@ -1,5 +1,6 @@
 import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
+import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import { VitePWA } from "vite-plugin-pwa"
@@ -9,6 +10,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
+    tailwindcss(),
     react(),
     VitePWA({
       registerType: "autoUpdate",
@@ -77,6 +79,19 @@ export default defineConfig({
   server: {
     port: 3000,
     open: true,
+    // Watch files in the monorepo for hot reload
+    watch: {
+      // Watch files outside of the current package for changes
+      ignored: ['!**/node_modules/**', '!**/.git/**'],
+      // Use polling for better cross-platform compatibility in monorepos
+      usePolling: false,
+      // Increase the interval for better performance
+      interval: 100,
+    },
+    fs: {
+      // Allow serving files from the monorepo root
+      allow: ['../../../'],
+    },
   },
   preview: {
     port: 3000,
