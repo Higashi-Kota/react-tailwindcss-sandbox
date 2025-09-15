@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.4",
-    "concurrently": "^8.2.2",
+    "concurrently": "^9.2.1",
     "knip": "^5.63.1",
     "taze": "^19.6.0",
     "typescript": "^5.9.2"
