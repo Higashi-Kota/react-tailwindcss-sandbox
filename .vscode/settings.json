@@ -33,7 +33,7 @@
   "typescript.tsserver.maxTsServerMemory": 12288,
 
   // TypeScript Server のログを有効化（デバッグ用）
-  "typescript.tsserver.log": "verbose",
+  "typescript.tsserver.log": "off",
 
   // TypeScript の自動ビルドを無効化
   "typescript.tsc.autoDetect": "off",
@@ -86,6 +86,11 @@
   // 3. 柔軟なマッピング: グロブパターンで細かい制御が可能
   // @see https://github.com/tailwindlabs/tailwindcss/issues/13136#issuecomment-2672907839
   "tailwindCSS.experimental.configFile": {
-    "./packages/theme/src/styles/base.css": "packages/**"
+    "./packages/apps/react-app/src/styles/globals.css": "packages/apps/react-app/**",
+    "./packages/ui/src/styles/index.css": "packages/ui/**",
+    "./packages/features/contact/src/styles/index.css": "packages/features/contact/**",
+    "./packages/features/dashboard/src/styles/index.css": "packages/features/dashboard/**",
+    "./packages/features/home/src/styles/index.css": "packages/features/home/**",
+    "./packages/theme/src/styles/base.css": "packages/theme/**"
   }
 }

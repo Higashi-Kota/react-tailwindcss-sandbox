@@ -6,16 +6,11 @@
   "exports": {
     "./biome": "./biome/biome.v2.json",
     "./tsconfig": "./tsconfig/tsconfig.base.json",
-    "./tsconfig-lib": "./tsconfig/tsconfig.lib.json",
-    "./postcss": "./postcss.config.js"
+    "./tsconfig-lib": "./tsconfig/tsconfig.lib.json"
   },
   "files": [
     "biome/biome.v2.json",
     "tsconfig/tsconfig.base.json",
-    "tsconfig/tsconfig.lib.json",
-    "postcss.config.js"
-  ],
-  "dependencies": {
-    "postcss": "^8.5.6"
-  }
+    "tsconfig/tsconfig.lib.json"
+  ]
 }

@@ -1,6 +1,6 @@
-@import "tailwindcss";
+/* Base styles - Tailwind is imported by each app's index.css */
 
-@config '../../../../tailwind.config.ts';
+@import "./theme.css";
 
 /*
   @source directive tells Tailwind CSS v4 which files to scan for utility classes.
@@ -9,7 +9,10 @@
   @see https://github.com/tailwindlabs/tailwindcss/issues/13136#issuecomment-2665220116
   @see https://github.com/linkb15/turborepo-shadcn-ui-tailwind-4/blob/main/packages/ui/src/styles/globals.css#L4
 */
-@source "../../../../packages/**/*.{js,ts,jsx,tsx}";
+@source "../../**/*.{js,ts,jsx,tsx}";
+@source "../../../ui/src/**/*.{js,ts,jsx,tsx}";
+@source "../../../*/src/**/*.{js,ts,jsx,tsx}";
+@source "../../../../apps/**/*.{js,ts,jsx,tsx}";
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
@@ -78,9 +81,10 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 }

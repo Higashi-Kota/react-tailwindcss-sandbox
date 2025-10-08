@@ -31,6 +31,7 @@
     "react-router-dom": "^7.9.1"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.13",
     "@biomejs/biome": "^2.2.4",
     "@internal/shared-config": "workspace:*",
     "@testing-library/react": "^16.1.0",
@@ -44,6 +45,7 @@
     "msw": "^2.10.5",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.13",
+    "tailwindcss-animate": "^1.0.7",
     "vite": "^7.0.7",
     "vite-plugin-pwa": "^1.0.3",
     "vitest": "^3.2.4"

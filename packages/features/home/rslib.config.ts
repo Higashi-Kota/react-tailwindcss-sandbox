@@ -1,31 +1,41 @@
 import { defineConfig } from "@rslib/core"
 
+const isProduction = process.env.NODE_ENV === "production"
+const isDevelopment = process.env.NODE_ENV === "development"
+const isTest = process.env.NODE_ENV === "test"
+const isStaging = process.env.NODE_ENV === "staging"
+
 export default defineConfig({
-  source: {
-    entry: {
-      index: "./src/index.tsx",
-    },
-  },
   lib: [
     {
       format: "esm",
+      syntax: "esnext",
       dts: true,
       bundle: true,
-      autoExtension: true,
-      syntax: "esnext",
+      output: {
+        minify: isProduction,
+        sourceMap: isDevelopment || isTest || isStaging,
+      },
     },
   ],
+  source: {
+    entry: {
+      index: "./src/index.ts",
+    },
+    tsconfigPath: "./tsconfig.json",
+  },
   output: {
-    target: "web",
+    externals: ["react", "react-dom", "react/jsx-runtime"],
     distPath: {
-      root: "./dist",
+      root: "dist",
     },
-    externals: {
-      react: "react",
-      "react-dom": "react-dom",
-      "react/jsx-runtime": "react/jsx-runtime",
-      "@internal/ui": "@internal/ui",
-    },
+    cleanDistPath: "auto",
+    copy: [
+      {
+        from: "src/styles",
+        to: "styles",
+      },
+    ],
   },
   tools: {
     swc: {
@@ -33,9 +43,20 @@ export default defineConfig({
         transform: {
           react: {
             runtime: "automatic",
+            importSource: "react",
           },
         },
       },
     },
   },
+  plugins: [
+    {
+      name: "build-success",
+      setup(api) {
+        api.onAfterBuild(() => {
+          console.log("✅ @internal/feature-home built successfully!")
+        })
+      },
+    },
+  ],
 })

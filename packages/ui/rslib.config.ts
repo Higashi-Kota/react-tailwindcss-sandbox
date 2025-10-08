@@ -8,39 +8,46 @@ const isStaging = process.env.NODE_ENV === "staging"
 export default defineConfig({
   lib: [
     {
-      source: {
-        entry: {
-          index: "src/index.ts",
-          "styles/index": "src/styles/index.css",
-        },
-        tsconfigPath: "./tsconfig.json",
-      },
       format: "esm",
       syntax: "esnext",
-      dts: {
-        bundle: false,
-        distPath: "dist",
-      },
+      dts: true,
       bundle: true,
       output: {
-        minify: isProduction || isStaging || isTest || isDevelopment,
-        sourceMap: {
-          js: "source-map",
-          css: false,
-        },
-        target: "web",
-        externals: [/^@internal\/(?!shared-config)/, /^react$/, /^react-dom$/],
-        cssModules: {
-          auto: true,
-        },
+        minify: isProduction,
+        sourceMap: isDevelopment || isTest || isStaging,
       },
     },
   ],
+  source: {
+    entry: {
+      index: "./src/index.ts",
+    },
+    tsconfigPath: "./tsconfig.json",
+  },
   output: {
+    externals: ["react", "react-dom", "react/jsx-runtime"],
     distPath: {
       root: "dist",
     },
     cleanDistPath: "auto",
+    copy: [
+      {
+        from: "src/styles",
+        to: "styles",
+      },
+    ],
+  },
+  tools: {
+    swc: {
+      jsc: {
+        transform: {
+          react: {
+            runtime: "automatic",
+            importSource: "react",
+          },
+        },
+      },
+    },
   },
   plugins: [
     {
