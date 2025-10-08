@@ -67,14 +67,27 @@ export default defineConfig({
     }),
   ],
   resolve: {
-    alias: {
-      "@": resolve(__dirname, "./src"),
-      "@/pages": resolve(__dirname, "./src/pages"),
-      "@/routes": resolve(__dirname, "./src/routes"),
-      "@/styles": resolve(__dirname, "./src/styles"),
-      "@/features": resolve(__dirname, "./src/features"),
-      "@/layouts": resolve(__dirname, "./src/layouts"),
-    },
+    alias: [
+      { find: "@", replacement: resolve(__dirname, "./src") },
+      { find: "@/pages", replacement: resolve(__dirname, "./src/pages") },
+      { find: "@/routes", replacement: resolve(__dirname, "./src/routes") },
+      { find: "@/styles", replacement: resolve(__dirname, "./src/styles") },
+      { find: "@/features", replacement: resolve(__dirname, "./src/features") },
+      { find: "@/layouts", replacement: resolve(__dirname, "./src/layouts") },
+      // CSS imports must point to source files for Tailwind v4
+      { find: "@internal/theme/styles/base", replacement: resolve(__dirname, "../../packages/theme/src/styles/base.css") },
+      { find: "@internal/theme/styles", replacement: resolve(__dirname, "../../packages/theme/src/styles/index.css") },
+      // Workspace packages (rely on pnpm symlinks, src-based when needed)
+      { find: "@internal/theme", replacement: resolve(__dirname, "../../packages/theme/src") },
+      { find: "@internal/ui", replacement: resolve(__dirname, "../../packages/ui/src") },
+      { find: "@internal/config", replacement: resolve(__dirname, "../../packages/config/src") },
+      { find: "@internal/hooks", replacement: resolve(__dirname, "../../packages/hooks/src") },
+      { find: "@internal/utils", replacement: resolve(__dirname, "../../packages/utils/src") },
+      { find: "@internal/feature-about", replacement: resolve(__dirname, "../../packages/features/about/src") },
+      { find: "@internal/feature-contact", replacement: resolve(__dirname, "../../packages/features/contact/src") },
+      { find: "@internal/feature-dashboard", replacement: resolve(__dirname, "../../packages/features/dashboard/src") },
+      { find: "@internal/feature-home", replacement: resolve(__dirname, "../../packages/features/home/src") },
+    ],
   },
   server: {
     port: 3000,

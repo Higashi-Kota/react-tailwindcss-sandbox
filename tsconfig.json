@@ -9,11 +9,11 @@
     "declarationMap": false
   },
   "references": [
+    { "path": "./apps/react-app" },
     { "path": "./packages/shared-config" },
     { "path": "./packages/theme" },
     { "path": "./packages/utils" },
     { "path": "./packages/hooks" },
-    { "path": "./packages/ui" },
-    { "path": "./packages/apps/react-app" }
+    { "path": "./packages/ui" }
   ]
 }

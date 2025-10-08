@@ -12,12 +12,13 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
+    "./styles/base": "./src/styles/base.css",
     "./styles": "./dist/styles/index.css",
-    "./styles/base": "./dist/styles/base.css",
     "./styles/components": "./dist/styles/components.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "src/styles"
   ],
   "sideEffects": [
     "*.css"

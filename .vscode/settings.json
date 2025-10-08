@@ -86,7 +86,7 @@
   // 3. 柔軟なマッピング: グロブパターンで細かい制御が可能
   // @see https://github.com/tailwindlabs/tailwindcss/issues/13136#issuecomment-2672907839
   "tailwindCSS.experimental.configFile": {
-    "./packages/apps/react-app/src/styles/globals.css": "packages/apps/react-app/**",
+    "./apps/react-app/src/styles/globals.css": "apps/react-app/**",
     "./packages/ui/src/styles/index.css": "packages/ui/**",
     "./packages/features/contact/src/styles/index.css": "packages/features/contact/**",
     "./packages/features/dashboard/src/styles/index.css": "packages/features/dashboard/**",
