@@ -39,7 +39,7 @@ const PACKAGE_GROUPS: readonly PackageGroup[] = [
 // Parse command line arguments
 const args = process.argv.slice(2)
 const appName = args[0] || "react-app"
-const appFilter = `./packages/apps/${appName}`
+const appFilter = `./apps/${appName}`
 
 // Build concurrently command
 const concurrentCommands: string[] = []

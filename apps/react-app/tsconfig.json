@@ -1,5 +1,5 @@
 {
-  "extends": "../../shared-config/tsconfig/tsconfig.app.json",
+  "extends": "@internal/shared-config/tsconfig-app",
   "compilerOptions": {
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.tsbuildinfo",
@@ -16,12 +16,12 @@
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"],
   "exclude": ["node_modules", "dist", "public"],
   "references": [
-    { "path": "../../config/tsconfig.json" },
-    { "path": "../../ui/tsconfig.json" },
-    { "path": "../../theme/tsconfig.json" },
-    { "path": "../../features/home/tsconfig.json" },
-    { "path": "../../features/about/tsconfig.json" },
-    { "path": "../../features/contact/tsconfig.json" },
-    { "path": "../../features/dashboard/tsconfig.json" }
+    { "path": "../../packages/config/tsconfig.json" },
+    { "path": "../../packages/ui/tsconfig.json" },
+    { "path": "../../packages/theme/tsconfig.json" },
+    { "path": "../../packages/features/home/tsconfig.json" },
+    { "path": "../../packages/features/about/tsconfig.json" },
+    { "path": "../../packages/features/contact/tsconfig.json" },
+    { "path": "../../packages/features/dashboard/tsconfig.json" }
   ]
 }

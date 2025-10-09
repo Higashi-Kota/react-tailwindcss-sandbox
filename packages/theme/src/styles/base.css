@@ -1,15 +1,17 @@
-@import "tailwindcss";
+/* Base styles - Tailwind is imported by each app's index.css */
 
-@config '../../../../tailwind.config.ts';
+@import "./theme.css";
 
 /*
-  @source directive tells Tailwind CSS v4 which files to scan for utility classes.
-  This is crucial for hot reload to work correctly in monorepos.
-  The path is relative to this CSS file's location.
-  @see https://github.com/tailwindlabs/tailwindcss/issues/13136#issuecomment-2665220116
-  @see https://github.com/linkb15/turborepo-shadcn-ui-tailwind-4/blob/main/packages/ui/src/styles/globals.css#L4
+  Note: @source directives should be placed in the consuming app's CSS file,
+  AFTER @import "tailwindcss" statement. They cannot work here because
+  tailwindcss hasn't been imported yet.
+
+  Each app should add @source directives like:
+  @source "../**\/*.{js,ts,jsx,tsx}";
+  @source "../../../packages/ui/src/**\/*.{js,ts,jsx,tsx}";
+  @source "../../../packages/features/*\/src/**\/*.{js,ts,jsx,tsx}";
 */
-@source "../../../../packages/**/*.{js,ts,jsx,tsx}";
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
@@ -78,9 +80,10 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 }
