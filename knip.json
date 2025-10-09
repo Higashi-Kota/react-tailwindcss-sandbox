@@ -11,7 +11,7 @@
     "**/.next/**",
     "**/node_modules/**"
   ],
-  "ignoreDependencies": ["@biomejs/biome", "autoprefixer", "postcss"],
+  "ignoreDependencies": ["@biomejs/biome"],
   "workspaces": {
     "apps/react-app": {
       "entry": ["src/main.tsx"],

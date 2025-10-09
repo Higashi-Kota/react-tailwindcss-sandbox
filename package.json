@@ -26,15 +26,16 @@
     "format": "pnpm -r format",
     "format:fix": "pnpm -r format:fix",
     "typecheck": "pnpm -r typecheck",
+    "package:update": "taze",
     "test": "pnpm -r test"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.4",
-    "@types/node": "^24.4.0",
+    "@biomejs/biome": "^2.2.5",
+    "@types/node": "^24.7.0",
     "concurrently": "^9.2.1",
-    "knip": "^5.63.1",
-    "taze": "^19.6.0",
-    "typescript": "^5.9.2"
+    "knip": "^5.64.2",
+    "taze": "^19.7.0",
+    "typescript": "^5.9.3"
   },
   "volta": {
     "node": "24.4.0",
